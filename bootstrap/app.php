@@ -3,15 +3,29 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Support\Facades\Route;
 
 return Application::configure(basePath: dirname(__DIR__))
-    ->withRouting(
-        web: __DIR__.'/../routes/web.php',
-        commands: __DIR__.'/../routes/console.php',
-        health: '/up',
-    )
+    ->withRouting(function () {
+        Route::middleware('website')->as('website.')->group(base_path('routes/website.php'));
+        Route::middleware('dashboard')->as('dashboard.')->prefix('dashboard')->group(base_path('routes/dashboard.php'));
+
+        // Add the `website` middleware to the fallback route
+        Route::fallback(fn () => abort(404))->middleware('website');
+    })
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->appendToGroup('website', [
+            // Code goes here
+        ]);
+
+        $middleware->appendToGroup('dashboard', [
+            \App\Http\Middleware\Dashboard\RoutePermission::class,
+        ]);
+
+        $middleware->alias([
+            'auth' => \App\Http\Middleware\Authenticate::class,
+            'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
