@@ -15,7 +15,7 @@
     }
 @endphp
 
-@if (session()->has($status))
+@if (isset($status) && session()->has($status))
     <div class=>"alert alert-{{ $type }} alert-dismissible" role="alert">
         <div class="d-flex">
             <i class="{{ $icon }} me-3"></i>
