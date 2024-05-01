@@ -62,9 +62,6 @@ class Dashboard extends Component
             return false;
         }
 
-        $locale = app()->getLocale();
-        $item->title = $item->locales[$locale] ?? Arr::first($item->locales);
-
         $item->url = isset($item->route) ? route($item->route) : '#';
         $item->active = $item->url && $this->isActiveUrl($item->url);
 

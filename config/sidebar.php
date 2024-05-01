@@ -16,18 +16,12 @@ return [
     [
         'route' => 'dashboard.index',
         'icon' => 'fa fa-home',
-        'locales' => [
-            'en' => 'Dashboard',
-            'ar' => 'لوحة التحكم',
-        ],
+        'title' => 'Dashboard',
     ],
 
     [
         'icon' => 'fa fa-globe',
-        'locales' => [
-            'en' => 'Website Management',
-            'ar' => 'إدارة الموقع',
-        ],
+        'title' => 'Website Management',
 
         'children' => [
             [
@@ -38,26 +32,17 @@ return [
 
     [
         'icon' => 'fa fa-cog',
-        'locales' => [
-            'en' => 'Settings',
-            'ar' => 'الإعدادات',
-        ],
+        'title' => 'Settings',
 
         'children' => [
             [
                 'route' => 'dashboard.profile.edit',
-                'locales' => [
-                    'en' => 'Profile',
-                    'ar' => 'الملف الشخصي',
-                ],
+                'title' => 'Profile',
             ],
 
             [
                 'route' => 'dashboard.admins.index',
-                'locales' => [
-                    'en' => 'Admins',
-                    'ar' => 'المشرفين',
-                ],
+                'title' => 'Admins',
             ],
         ],
     ],
