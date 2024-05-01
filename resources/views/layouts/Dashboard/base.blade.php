@@ -39,7 +39,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown">
                             <span @if ($admin->profile_picture) @style('background-image: url(' . $admin->profile_picture . ')') @endif
-                                {{ $attributes->merge(['class' => 'avatar avatar-' . $size]) }}>
+                                {{ $attributes->merge(['class' => 'avatar avatar-sm']) }}>
                                 {{ $admin->profile_picture ? '' : mb_substr($admin->name, 0, 1) }}
                             </span>
 
@@ -74,14 +74,12 @@
                     <footer class="mt-4 text-muted text-center">
                         <div>
                             {{ __('All rights reserved for') }}
-                            <a href="{{ config('app.url') }}" target="_blank">{{ setting('app_name') }}</a>
+                            <a href="{{ config('app.url') }}" target="_blank">{{ env('app_name') }}</a>
                             &copy; {{ date('Y') }}
                         </div>
                         <div>
                             {{ __('Developed by') }}
                             <a href="https://linkedin.com/in/ahmedwaeel" target="_blank">Ahmed Wael</a>
-                            &
-                            <a href="https://www.linkedin.com/in/hassan-ahmed-elsayed/" target="_blank">Hassan Ahmed</a>
                         </div>
                     </footer>
                 </div>
@@ -89,5 +87,5 @@
         </div>
     </div>
 
-    <x-components::form id="logout-form" :action="route('dashboard.logout')" method="POST" class="d-none" disable-validation />
+    <form id="logout-form" action="route('dashboard.logout')" method="POST" class="d-none" ></form>
 </x-layouts::scaffold>
