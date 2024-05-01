@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::middleware('auth:admins')->group(function () {
     Route::get('/', \App\Http\Controllers\Dashboard\DashboardController::class)->name('index')->withoutMiddleware(RoutePermission::class);
+
+    Route::resource('admins', \App\Http\Controllers\Dashboard\AdminController::class)->except('show');
 });
 
 /*
