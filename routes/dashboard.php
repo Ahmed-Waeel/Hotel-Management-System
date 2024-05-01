@@ -3,7 +3,26 @@
 use App\Http\Middleware\Dashboard\RoutePermission;
 use Illuminate\Support\Facades\Route;
 
+/*
+|--------------------------------------------------------------------------
+| Dashboard Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register dashboard routes for your application.
+|
+*/
+Route::middleware('auth:admins')->group(function () {
+    Route::get('/', \App\Http\Controllers\Dashboard\DashboardController::class)->name('index')->withoutMiddleware(RoutePermission::class);
+});
 
+/*
+|--------------------------------------------------------------------------
+| Auth Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register auth routes for your dashboard.
+|
+*/
 Route::withoutMiddleware(RoutePermission::class)->group(function () {
     Route::middleware('guest:admins')->group(function () {
         Route::get('/login', [\App\Http\Controllers\Dashboard\Auth\AuthenticatedSessionController::class, 'create'])->name('login');
