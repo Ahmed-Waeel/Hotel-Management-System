@@ -7,23 +7,33 @@ This project is a Hotel Management System developed as part of an assessment. It
 To get this project up and running on your local machine, follow these steps:
 
 1. Clone the Repository:
+```bash
    git clone https://github.com/your_username/hotel-management-system.git
    cd hotel-management-system
+```
 
 2. Install Dependencies:
+```bash
    composer install
+```
 
 3. Set Up Environment:
+```bash
    cp .env.example .env
+```
 
 4. Generate Application Key:
-   php artisan key:generate
+```bash
+    php artisan key:generate
+```
 
 5. Run Migrations and Seed Database:
-   php artisan migrate --seed
+```bash
+    php artisan migrate --seed
+```
 
 6. Access Dashboard:
-   Once the project is running, you can access the dashboard at /dashboard route.
+   Once the project is running, you can access the dashboard at `http://localhost:8000/dashboard`.
 
 ### Default Admin Credentials
 
