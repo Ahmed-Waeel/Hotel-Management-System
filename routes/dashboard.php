@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:admins')->group(function () {
     Route::get('/', \App\Http\Controllers\Dashboard\DashboardController::class)->name('index')->withoutMiddleware(RoutePermission::class);
 
+    Route::get('profile', [\App\Http\Controllers\Dashboard\ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('profile', [\App\Http\Controllers\Dashboard\ProfileController::class, 'update'])->name('profile.update');
+
     Route::resource('admins', \App\Http\Controllers\Dashboard\AdminController::class)->except('show');
 });
 
