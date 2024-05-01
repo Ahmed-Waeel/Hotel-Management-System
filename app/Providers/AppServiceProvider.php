@@ -13,12 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // Register layouts namespace
-        Blade::anonymousComponentPath(resource_path('layouts'), 'layouts');
-        Blade::componentNamespace('App\\View\\Layouts', 'layouts');
-
-        // Default pagination view
-        Paginator::defaultView('components.pagination');
+        //
     }
 
     /**
@@ -26,6 +21,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Register layouts namespace
+        Blade::componentNamespace('App\\View\\Layouts', 'layouts');
+        Blade::anonymousComponentPath(resource_path('views\layouts'), 'layouts');
+
+        // Register components namespace
+        Blade::componentNamespace('App\\View\\Components', 'components');
+        Blade::anonymousComponentPath(resource_path('views\components'), 'components');
+
+        // Default pagination view
+        Paginator::defaultView('components.pagination');
     }
 }
