@@ -15,11 +15,14 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->appendToGroup('website', [
-            // Code goes here
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \Illuminate\Session\Middleware\StartSession::class,
         ]);
 
         $middleware->appendToGroup('dashboard', [
             \App\Http\Middleware\Dashboard\RoutePermission::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         ]);
 
         $middleware->alias([
