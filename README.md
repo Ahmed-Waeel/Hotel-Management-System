@@ -8,28 +8,28 @@ To get this project up and running on your local machine, follow these steps:
 
 1. Clone the Repository:
 ```bash
-   git clone https://github.com/your_username/hotel-management-system.git
-   cd hotel-management-system
+git clone https://github.com/your_username/hotel-management-system.git
+cd hotel-management-system
 ```
 
 2. Install Dependencies:
 ```bash
-   composer install
+composer install
 ```
 
 3. Set Up Environment:
 ```bash
-   cp .env.example .env
+copy .env.example .env
 ```
 
 4. Generate Application Key:
 ```bash
-    php artisan key:generate
+php artisan key:generate
 ```
 
 5. Run Migrations and Seed Database:
 ```bash
-    php artisan migrate --seed
+php artisan migrate --seed
 ```
 
 6. Access Dashboard:
