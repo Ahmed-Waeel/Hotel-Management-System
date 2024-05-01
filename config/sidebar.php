@@ -25,9 +25,20 @@ return [
 
         'children' => [
             [
-
+                'title' => 'Rooms',
+                'icon' => 'fas fa-person-booth',
             ],
-        ],
+
+            [
+                'title' => 'Reservations requests',
+                'icon' => 'fas fa-calendar',
+            ],
+
+            [
+                'title' => 'Reservations',
+                'icon' => 'fas fa-calendar-check',
+            ],
+        ]
     ],
 
     [
