@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers\Website;
 
-use App\Http\Requests\Website\ProfileUpdateRequest;
 use App\Models\User;
-use App\Traits\CanUploadFile;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    use CanUploadFile;
 
     /**
      * Show the form for editing the specified resource.
@@ -26,7 +23,6 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $user)
     {
-
         return $this->updated(__('Profile'), 'website.profile.edit');
     }
 }
