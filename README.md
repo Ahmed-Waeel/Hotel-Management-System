@@ -47,6 +47,6 @@ To get this project up and running on your local machine, follow these steps:
 
 ### Support
 
-If you encounter any issues or have questions regarding this project, please feel free to contact [Your Name] at [Your Email Address].
+If you encounter any issues or have questions regarding this project, please feel free to contact Ahmed Wael at Ahmed.wael7822@gmail.com.
 
 Thank you for reviewing this assessment!
