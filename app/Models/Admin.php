@@ -35,9 +35,9 @@ class Admin extends Model
     *
     * @var array<string, string>
     */
-   protected $casts = [
-       'password' => 'hashed',
-   ];
+    protected $casts = [
+        'password' => 'hashed',
+    ];
 
     /**
      * Scope a query to only include admins that are not the current admin.
